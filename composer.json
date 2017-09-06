@@ -1,10 +1,6 @@
 {
     "name": "hskrasek/guzzle-sunset",
     "type": "library",
-    "require-dev": {
-        "php": ">=7.0.0",
-        "phpunit/phpunit": "^6.3"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -16,6 +12,10 @@
         "guzzlehttp/guzzle": "~6.0",
         "psr/log": "^1.0"
     },
+    "require-dev": {
+        "php": ">=7.0.0",
+        "phpunit/phpunit": "^6.3"
+    },
     "autoload": {
         "psr-4": {
             "HSkrasek\\Sunset\\": "src/"
@@ -25,5 +25,8 @@
         "psr-4": {
             "HSkrasek\\Sunset\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }
