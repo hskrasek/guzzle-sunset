@@ -53,8 +53,10 @@ class SunsetMiddleware
      *
      * @param RequestInterface $request
      * @param DateTime $deprecationDate
+     *
+     * @return void
      */
-    private function reportDeprecation(RequestInterface $request, DateTime $deprecationDate): void
+    private function reportDeprecation(RequestInterface $request, DateTime $deprecationDate)
     {
         if ($deprecationDate > new DateTime) {
             $this->logger->warning(
