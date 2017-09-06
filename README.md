@@ -1,5 +1,8 @@
 # Guzzle Middleware Sunset
 
+[![Build Status][travis-image]][travis-url]
+[![MIT License][license-image]][license-url]
+
 Watch out for Sunset headers on HTTP responses, as they signify the deprecation (and eventual removal) of an endpoint.
 
 Sunset is an in-development RFC for a HTTP response header, [currently v03][sunset-draft]. Check out [GitHub][sunset-github] for issues and discussion around it's development.
@@ -47,3 +50,9 @@ $ composer test
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at [hskrasek/guzzle-sunset](https://github.com/hskrasek/guzzle-sunset). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+[travis-url]: https://travis-ci.org/hskrasek/guzzle-sunset
+[travis-image]: https://travis-ci.org/hskrasek/guzzle-sunset.svg?branch=master
+
+[license-url]: LICENSE
+[license-image]: http://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
