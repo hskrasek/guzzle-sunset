@@ -61,4 +61,31 @@ class SunsetMiddlewareTest extends TestCase
 
         $client->request('GET', '/deprecated');
     }
+
+    /**
+     * @test
+     */
+    public function it_logs_a_past_deprecation_warning_when_sunset_header_is_present()
+    {
+        $date = new \DateTime();
+        $date->sub(new \DateInterval('P1M'));
+        $mockLogger = $this->createMock(LoggerInterface::class);
+        $mockLogger->expects($this->once())
+            ->method('warning')
+            ->with(
+                'Endpoint http://www.example.com/deprecated was deprecated for removal on ' . $date->format('c') . ' and could be removed AT ANY TIME',
+                []
+            );
+
+        $mockHandler = new MockHandler([
+            new Response(200, ['Sunset' => $date->format('r')]),
+        ]);
+
+        $stack = HandlerStack::create($mockHandler);
+        $stack->push(new SunsetMiddleware($mockLogger));
+
+        $client = new Client(['handler' => $stack, 'base_uri' => 'http://www.example.com']);
+
+        $client->request('GET', '/deprecated');
+    }
 }
