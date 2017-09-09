@@ -35,6 +35,8 @@ composer require hskrasek/guzzle-sunset
 ```php
 $stack = new \GuzzleHttp\HandlerStack(\GuzzleHttp\choose_handler());
 $stack->push(new \HSkrasek\Sunset\SunsetMiddleware($somePsr3Logger));
+
+$client = new \GuzzleHttp\Client(['handler' => $stack]);
 ```
 
 ## Change log
